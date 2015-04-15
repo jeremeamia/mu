@@ -2,9 +2,12 @@
 
 A _real_ "microframework" that fits in just 4 lines of code.
 
+The microframeworks out there aren't micro enough for me, so I brushed up on
+some of my code golfing skills to create **µ**.
+
 ## Features
 
-The 4 lines of µ come jam-packed with features!
+These 4 LOC come jam-packed with features!
 
 ### Easy, regex-based routing system, if you know regex
 
@@ -72,7 +75,7 @@ echo (new µ)
     ->run();
 ```
     
-### A truly _elegant_ and fluent interface—maybe even artisanal
+### A truly _elegant_ and fluent interface
 
 _See previous example._
 
@@ -109,4 +112,10 @@ Does not include any twigs or blades, which reduces chances of injury.
 
 ### It works, but it's a joke.
 
-So don't use this in production, or really anywhere. It's just for fun. :smile:
+Don't use this in production, or really anywhere. It's just for fun. :smile:
+
+If you want to use a production-quality microframework, try one of these:
+
+* [Slim](http://www.slimframework.com/)
+* [Silex](http://silex.sensiolabs.org/)
+* [Lumen](http://lumen.laravel.com/) _(new)_
