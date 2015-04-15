@@ -6,7 +6,7 @@ A _real_ "microframework" that fits in just 4 lines of code.
 
 The 4 lines of µ come jam-packed with features!
 
-### Easy, regex-based routing system.
+### Easy, regex-based routing system, if you know regex
 
 Follows the well-established route-to-callable microframework pattern.
 
@@ -41,7 +41,7 @@ echo (new µ)
     ->run();
 ```
 
-Supports wildcard verbs too, because sometimes you don't care.
+Supports wildcard verbs too, because sometimes you are just making a web page and you really don't care.
 
 ```php
 echo (new µ)
@@ -49,7 +49,7 @@ echo (new µ)
     ->run();
 ```
 
-### Flexible and powerful dependency injection container.
+### Flexible and powerful dependency injection container
 
 ```php
 use Monolog\Logger;
@@ -72,15 +72,15 @@ echo (new µ)
     ->run();
 ```
     
-### Has an _elegant_, fluent interface, just cuz!
+### A truly _elegant_ and fluent interface—maybe even artisanal
 
 _See previous example._
 
-### Built-in templating system
+### Built-in templating system, free of `{}`
 
 Templates are PHP files, not things with lots of {{{}}}.
 
-```php
+```html
 <!-- templates/hello.php -->
 <html>
   <head>
@@ -106,3 +106,7 @@ echo (new µ)
 ```
 
 Does not include any twigs or blades, which reduces chances of injury.
+
+### It works, but it's a joke.
+
+So don't use this in production, or really anywhere. It's just for fun. :smile:
