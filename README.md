@@ -17,17 +17,17 @@ Follows the well-established route-to-callable microframework pattern.
 echo (new µ)
     ->get('/hello', function ($app) {
         return "<p>Hello, world!</p>";
-    ])
+    })
     ->run();
 ```
 
-Allows you to access parameters from the URL. 
+Allows you to access parameters from the URL.
 
 ```php
 echo (new µ)
     ->get('/hello/(?<name>\w+)', function ($app, $params) {
         return "<p>Hello, {$params['name']}!</p>";
-    ])
+    })
     ->run();
 ```
 
@@ -72,10 +72,10 @@ echo (new µ)
     ->get('/hello/(?<name>\w+)', function ($app, $params) {
         $app->cfg('log')->addDebug("Said hello to {$params['name']}.");
         return "<p>Hello, {$params['name']}!</p>";
-    ])
+    })
     ->run();
 ```
-    
+
 ### A truly _elegant_ and fluent interface
 
 _See previous example (I'm lazy)._
