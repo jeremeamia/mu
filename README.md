@@ -1,15 +1,15 @@
-# PHP µ Framework
+# The µ PHP Microframework
 
-A _real_ "microframework" that fits in just 4 lines of code.
+A _"real"_ microframework that fits in just 4 lines of code.
 
-The microframeworks out there aren't micro enough for me, so I brushed up on
+The microframeworks out there weren't micro enough for me, so I brushed up on
 some of my code golfing skills to create **µ**.
 
 ## Features
 
 These 4 LOC come jam-packed with features!
 
-### Easy, regex-based routing system, if you know regex
+### Easy, regex-based routing system
 
 Follows the well-established route-to-callable microframework pattern.
 
@@ -44,7 +44,8 @@ echo (new µ)
     ->run();
 ```
 
-Supports wildcard verbs too, because sometimes you are just making a web page and you really don't care.
+Supports wildcard verbs too, because sometimes you are just making a web page
+and you really don't care about esoteric HTTP practices.
 
 ```php
 echo (new µ)
@@ -52,7 +53,7 @@ echo (new µ)
     ->run();
 ```
 
-### Flexible and powerful dependency injection container
+### Simple, but powerful, dependency injection container
 
 ```php
 use Monolog\Logger;
@@ -77,11 +78,11 @@ echo (new µ)
     
 ### A truly _elegant_ and fluent interface
 
-_See previous example._
+_See previous example (I'm lazy)._
 
 ### Built-in templating system, free of `{}`
 
-Templates are PHP files, not things with lots of {{{}}}.
+Templates are just PHP files—no mustaches and no frills.
 
 ```html
 <!-- templates/hello.php -->
@@ -108,13 +109,13 @@ echo (new µ)
     ->run();
 ```
 
-Does not include any twigs or blades, which reduces chances of injury.
+No twigs, plates, or blades to cut you or poke you.
 
-### It works, but it's a joke.
+## It works, but it's kinda just a joke.
 
 Don't use this in production, or really anywhere. It's just for fun. :smile:
 
-If you want to use a production-quality microframework, try one of these:
+If you want to use a production-quality _microframework_, try one of these:
 
 * [Slim](http://www.slimframework.com/)
 * [Silex](http://silex.sensiolabs.org/)
