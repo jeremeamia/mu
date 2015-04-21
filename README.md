@@ -101,9 +101,9 @@ Templates are just PHP files—no mustaches and no frills.
 ```php
 // index.php
 echo (new µ)
-    ->cfg('views', __DIR__ . '/templates')
+    ->cfg('Ʋ', __DIR__ . '/templates')
     ->any('/hello/(?<name>\w+)', function ($app, $params) {
-        return $app->view('hello', [
+        return $app->ʋ('hello', [
             'greeting' => 'howdy',
             'name'     => $params['name'],
         ]);
