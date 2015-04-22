@@ -55,6 +55,17 @@ $ñ = $µ->run();
 assert('$ç === false');
 assert('$ñ === null');
 
+Ω('The "any" method can be used to register a route that accepts any HTTP verb.');
+$ç = false;
+$µ = (new µ)->any('/foo/(?<bar>\w+)', function ($µ, $π) use (&$ç) {
+    $ç = true;
+    return $π['bar'];
+});
+ø('PUT', '/foo/one');
+$ñ = $µ->run();
+assert('$ç === true');
+assert('$ñ === "one"');
+
 Ω('Templating (view) system replaces variables with provided values.');
 $dir = sys_get_temp_dir().'/mu-view-test';
 $file = $dir.'/tpl.php';
