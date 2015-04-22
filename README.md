@@ -113,7 +113,18 @@ echo (new µ)
 
 No twigs, plates, or blades to cut you or poke you.
 
-## It works, but it's kinda just a joke.
+## Design constraints
+
+* Must have at least a Router, Container, and Templating System as features.
+* Must attempt to incorporate usage patterns (e.g., chainable methods, closures
+  as controllers) that resemble other contemporary microframeworks.
+* Must work with `error_reporting` set to `-1` (all errors reported).
+* Must not exceed 4 lines of code (LOC), where each line is <= 120 characters.
+* Must not have dependencies on other packages.
+* May break traditional coding conventions for the sake of brevity.
+* Must be hand-written.
+
+## It works, but it's really just a joke.
 
 Don't use this in production, or really anywhere. It's just for fun. :smile:
 

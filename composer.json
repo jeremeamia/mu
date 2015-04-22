@@ -1,7 +1,7 @@
 {
   "name": "mu/framework",
   "description": "The PHP µ (mu) 4-line Microframework.",
-  "keywords": ["µ", "framework", "microframework", "lumen", "laravel", "slim", "silex"],
+  "keywords": ["µ", "framework", "microframework", "router", "container", "template"],
   "license": "MIT",
   "type": "project",
   "autoload": {
