@@ -2,10 +2,12 @@
 
 [![Code Climate](https://codeclimate.com/github/jeremeamia/mu/badges/gpa.svg)](https://codeclimate.com/github/jeremeamia/mu)
 
-A _"real"_ microframework that fits in just 4 lines of code.
+A _"real"_ microframework that fits in **just 4 lines of code**.
 
-The microframeworks out there weren't micro enough for me, so I brushed up on
+The "microframeworks" out there weren't _micro_ enough for me, so I brushed up on
 some of my code golfing skills to create **µ**.
+
+[Check out the code!](https://github.com/jeremeamia/mu/blob/master/mu.php)
 
 ## Features
 
