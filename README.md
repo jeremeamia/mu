@@ -22,7 +22,7 @@ echo (new µ)
     ->get('/hello', function ($app) {
         return "<p>Hello, world!</p>";
     })
-    ->run();
+    ->run($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);
 ```
 
 Allows you to access parameters from the URL.
@@ -32,7 +32,7 @@ echo (new µ)
     ->get('/hello/(?<name>\w+)', function ($app, $params) {
         return "<p>Hello, {$params['name']}!</p>";
     })
-    ->run();
+    ->run($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);
 ```
 
 Supports all your favorite HTTP verbs.
@@ -45,7 +45,7 @@ echo (new µ)
     ->patch('/user/(?<id>\d+)', $fn)
     ->post('/users', $fn)
     ->put('/user/(?<id>\d+)', $fn)
-    ->run();
+    ->run($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);
 ```
 
 Supports wildcard verbs too, because sometimes you are just making a web page
@@ -54,7 +54,7 @@ and you really don't care about esoteric HTTP practices.
 ```php
 echo (new µ)
     ->any('/', $fn)
-    ->run();
+    ->run($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);
 ```
 
 ### Simple, but powerful, dependency injection container
@@ -77,7 +77,7 @@ echo (new µ)
         $app->cfg('log')->addDebug("Said hello to {$params['name']}.");
         return "<p>Hello, {$params['name']}!</p>";
     })
-    ->run();
+    ->run($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);
 ```
 
 ### A truly _elegant_ and fluent interface
@@ -110,7 +110,7 @@ echo (new µ)
             'name'     => $params['name'],
         ]);
     })
-    ->run();
+    ->run($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);
 ```
 
 No twigs, plates, or blades to cut you or poke you.

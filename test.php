@@ -3,7 +3,6 @@
 error_reporting(-1);
 require __DIR__.'/vendor/autoload.php';
 function Ω($d){static$n=1;echo'['.($n++)."] {$d}\n";}
-function ø($m,$r){$_SERVER['REQUEST_METHOD']=$m;$_SERVER['REQUEST_URI']=$r;}
 echo "Testing the µ PHP framework.\n";
 
 Ω('Instances of µ can be created.');
@@ -41,8 +40,7 @@ $µ = (new µ)->get('/foo/(?<bar>\w+)(?:/(?<baz>\w+))?', function ($µ, $π) use
     assert('!isset($π["baz"])');
     $ç = true;
 });
-ø('GET', '/foo/one');
-$µ->run();
+$µ->run('GET', '/foo/one');
 assert('$ç === true');
 
 Ω('NULL is returned when the µ is run if no routes match.');
@@ -50,8 +48,7 @@ $ç = false;
 $µ = (new µ)->post('/foo/(?<bar>\w+)', function () use (&$ç) {
     $ç = true;
 });
-ø('GET', '/foo/one');
-$ñ = $µ->run();
+$ñ = $µ->run('GET', '/foo/one');
 assert('$ç === false');
 assert('$ñ === null');
 
@@ -61,8 +58,7 @@ $µ = (new µ)->any('/foo/(?<bar>\w+)', function ($µ, $π) use (&$ç) {
     $ç = true;
     return $π['bar'];
 });
-ø('PUT', '/foo/one');
-$ñ = $µ->run();
+$ñ = $µ->run('PUT', '/foo/one');
 assert('$ç === true');
 assert('$ñ === "one"');
 
