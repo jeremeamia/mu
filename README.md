@@ -133,5 +133,9 @@ Don't use this in production, or really anywhere. It's just for fun. :smile:
 If you want to use a production-quality _microframework_, try one of these:
 
 * [Slim](http://www.slimframework.com/)
-* [Silex](http://silex.sensiolabs.org/)
-* [Lumen](http://lumen.laravel.com/) _(new)_
+* [Lumen](http://lumen.laravel.com/)
+* Zend [Diactoros](https://docs.zendframework.com/zend-diactoros/) or [Expressive](https://docs.zendframework.com/zend-expressive/)
+
+## Is there a PHP 7 Version?
+
+Not yet. Waiting for 7.4 with shorthand closures before I attempt anything.
