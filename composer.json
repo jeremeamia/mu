@@ -6,5 +6,11 @@
   "type": "project",
   "autoload": {
     "files": ["mu.php"]
+  },
+  "dependencies": {
+    "php": ">=7.0"
+  },
+  "require-dev": {
+    "monolog/monolog": "^2.2"
   }
 }

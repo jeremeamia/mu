@@ -1,8 +1,6 @@
 # The µ PHP Microframework
 
-[![Code Climate](https://codeclimate.com/github/jeremeamia/mu/badges/gpa.svg)](https://codeclimate.com/github/jeremeamia/mu)
-
-A _"real"_ microframework that fits in **just 4 lines of code**.
+A _"real"_ microframework that fits in **just 3 lines of code**.
 
 The "microframeworks" out there weren't _micro_ enough for me, so I brushed up on
 some of my code golfing skills to create **µ**.
@@ -11,16 +9,16 @@ some of my code golfing skills to create **µ**.
 
 ## Features
 
-These 4 LOC come jam-packed with features!
+These 3 LOC come jam-packed with features!
 
 ### Easy, regex-based routing system
 
 Follows the well-established route-to-callable microframework pattern.
 
 ```php
-echo (new µ)
-    ->get('/hello', function ($app) {
-        return "<p>Hello, world!</p>";
+(new µ)
+    ->get('/hello', function () {
+        echo "<p>Hello, world!</p>";
     })
     ->run();
 ```
@@ -28,9 +26,9 @@ echo (new µ)
 Allows you to access parameters from the URL.
 
 ```php
-echo (new µ)
+(new µ)
     ->get('/hello/(?<name>\w+)', function ($app, $params) {
-        return "<p>Hello, {$params['name']}!</p>";
+        echo "<p>Hello, {$params['name']}!</p>";
     })
     ->run();
 ```
@@ -38,7 +36,7 @@ echo (new µ)
 Supports all your favorite HTTP verbs.
 
 ```php
-echo (new µ)
+(new µ)
     ->delete('/user/(?<id>\d+)', $fn)
     ->get('/user/(?<id>\d+)', $fn)
     ->head('/user/(?<id>\d+)', $fn)
@@ -48,25 +46,16 @@ echo (new µ)
     ->run();
 ```
 
-Supports wildcard verbs too, because sometimes you are just making a web page
-and you really don't care about esoteric HTTP practices.
+### Simple dependency/config container
 
 ```php
-echo (new µ)
-    ->any('/', $fn)
-    ->run();
-```
-
-### Simple, but powerful, dependency injection container
-
-```php
-use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
+use Monolog\Logger;
 
-echo (new µ)
+(new µ)
     ->cfg('log.channel', 'your-app')
-    ->cfg('log.handler', function ($app) {
-        return new StreamHandler('path/to/your.log', Logger::WARNING);
+    ->cfg('log.handler', function () {
+        return new StreamHandler('path/to/your.log', Logger::DEBUG);
     })
     ->cfg('log', function ($app) {
         $log = new Logger($app->cfg('log.channel'));
@@ -74,11 +63,14 @@ echo (new µ)
         return $log;
     })
     ->get('/hello/(?<name>\w+)', function ($app, $params) {
-        $app->cfg('log')->addDebug("Said hello to {$params['name']}.");
-        return "<p>Hello, {$params['name']}!</p>";
+        $app->cfg('log')->debug("Said hello to {$params['name']}");
+        echo "<p>Hello, {$params['name']}!</p>";
     })
     ->run();
 ```
+
+If a callable is provided (like with `log.handler` above), then it is treated as a factory and is only called once to
+produce a singleton value for efficient, multiple accesses.
 
 ### A truly _elegant_ and fluent interface
 
@@ -102,10 +94,10 @@ Templates are just PHP files—no mustaches and no frills.
 
 ```php
 // index.php
-echo (new µ)
+(new µ)
     ->cfg('views', __DIR__ . '/templates')
-    ->any('/hello/(?<name>\w+)', function ($app, $params) {
-        return $app->view('hello', [
+    ->get('/hello/(?<name>\w+)', function ($app, $params) {
+        echo $app->view('hello', [
             'greeting' => 'howdy',
             'name'     => $params['name'],
         ]);
@@ -113,7 +105,7 @@ echo (new µ)
     ->run();
 ```
 
-No twigs, plates, or blades to cut you or poke you.
+No Twigs, Plates, or Blades to cut you or poke you. That might feel a little _dull_, but it's simple.
 
 ## Design constraints
 
@@ -121,21 +113,31 @@ No twigs, plates, or blades to cut you or poke you.
 * Must attempt to incorporate usage patterns (e.g., chainable methods, closures
   as controllers) that resemble other contemporary microframeworks.
 * Must work with `error_reporting` set to `-1` (all errors reported).
-* Must not exceed 4 lines of code (LOC), where each line is <= 120 characters.
+* Must not exceed 3 lines of code (LOC), where each line is <= 120 characters.
 * Must not have dependencies on other packages.
-* May break traditional coding conventions for the sake of brevity.
-* Must be hand-written.
+* May break traditional coding conventions/styles for the sake of brevity.
+* Must be hand-written, not minified/obfuscated by any tools.
 
 ## It works, but it's really just a joke.
 
 Don't use this in production, or really anywhere. It's just for fun. :smile:
 
-If you want to use a production-quality _microframework_, try one of these:
+If you want to use a production-quality _microframework_, try [Slim](http://www.slimframework.com/).
 
-* [Slim](http://www.slimframework.com/)
-* [Lumen](http://lumen.laravel.com/)
-* Zend [Diactoros](https://docs.zendframework.com/zend-diactoros/) or [Expressive](https://docs.zendframework.com/zend-expressive/)
+## Examples
 
-## Is there a PHP 7 Version?
+The code examples in this README are also shipped as working examples in the `/examples` directory.
 
-Not yet. Waiting for 7.4 with shorthand closures before I attempt anything.
+To run an example, use the built-in PHP server.
+```bash
+# For the hello1 example:
+php -S localhost:8000 examples/hello1.php
+```
+Then access `http://localhost:8000` in your browser or via cURL.
+
+## Tests
+
+A very basic test suite is included, and can be run via:
+```bash
+php test.php
+```
