@@ -1,11 +1,13 @@
-# The µ PHP Microframework
+# The µ PHP Micro-framework
 
-A _"real"_ microframework that fits in **just 3 lines of code**.
+A _"real"_ :trollface: micro-framework that fits in **just 3 lines of code<sup>†</sup>**.
 
-The "microframeworks" out there weren't _micro_ enough for me, so I brushed up on
+The "micro-frameworks" out there weren't _micro_ enough for me, so I brushed up on
 some of my code golfing skills to create **µ**.
 
 [Check out the code!](https://github.com/jeremeamia/mu/blob/master/mu.php)
+
+_<sup>†</sup>Where "line of code" means "as much code as possible crammed into <= 120 characters"._
 
 ## Features
 
@@ -13,7 +15,7 @@ These 3 LOC come jam-packed with features!
 
 ### Easy, regex-based routing system
 
-Follows the well-established route-to-callable microframework pattern.
+Follows the well-established route-to-callable micro-framework pattern.
 
 ```php
 (new µ)
@@ -111,7 +113,7 @@ No Twigs, Plates, or Blades to cut you or poke you. That might feel a little _du
 
 * Must have at least a Router, Container, and Templating System as features.
 * Must attempt to incorporate usage patterns (e.g., chainable methods, closures
-  as controllers) that resemble other contemporary microframeworks.
+  as controllers) that resemble other contemporary micro-frameworks.
 * Must work with `error_reporting` set to `-1` (all errors reported).
 * Must not exceed 3 lines of code (LOC), where each line is <= 120 characters.
 * Must not have dependencies on other packages.
@@ -122,7 +124,7 @@ No Twigs, Plates, or Blades to cut you or poke you. That might feel a little _du
 
 Don't use this in production, or really anywhere. It's just for fun. :smile:
 
-If you want to use a production-quality _microframework_, try [Slim](http://www.slimframework.com/).
+If you want to use a production-quality _micro-framework_, try [Slim](http://www.slimframework.com/).
 
 ## Examples
 
