@@ -54,7 +54,7 @@ $dir = sys_get_temp_dir().'/mu-view-test';
 $file = $dir.'/tpl.php';
 !is_dir($dir) and mkdir($dir);
 file_put_contents($file, '[<?=$foo?>]');
-$ñ = (new µ)->cfg('views', $dir)->view('tpl', ['foo' => 'bar']);
+$ñ = (new µ)->view($dir, 'tpl', ['foo' => 'bar']);
 unlink($file);
 rmdir($dir);
 assert($ñ === "[bar]");
