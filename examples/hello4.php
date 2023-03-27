@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 require __DIR__ . '/../vendor/autoload.php';
 
+const VIEWS_DIR = __DIR__ . '/templates';
+
 (new µ)
-    ->cfg('views', __DIR__ . '/templates')
     ->get('/hello/(?<name>\w+)', function ($app, $params) {
-        echo $app->view('hello4', [
+        echo $app->view(VIEWS_DIR, 'hello4', [
             'greeting' => 'howdy',
             'name'     => $params['name'],
         ]);
